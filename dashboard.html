@@ -44,37 +44,34 @@ Mamifs Future Tech - Student Dashboard
 </div>
 
 <script>
+const sheetURL = "YOUR_CSV_LINK";
 
-// Example demo data
-let students = [
-{name:"John Doe",email:"john@email.com",phone:"123456",course:"Web Development",status:"Pending"},
-{name:"Fatime",email:"fatime@email.com",phone:"69900675",course:"English",status:"Paid"}
-];
+async function loadStudents() {
+  const res = await fetch(sheetURL);
+  const data = await res.text();
 
-function loadStudents(){
-let table = document.getElementById("studentTable");
-table.innerHTML = "";
-students.forEach((s,index)=>{
-let row = `<tr>
-<td>${s.name}</td>
-<td>${s.email}</td>
-<td>${s.phone}</td>
-<td>${s.course}</td>
-<td>${s.status}</td>
-<td><button onclick="markPaid(${index})">Mark Paid</button></td>
-</tr>`;
-table.innerHTML += row;
-});
+  const rows = data.split("\n").slice(1);
+  const table = document.getElementById("studentTable");
+  table.innerHTML = "";
+
+  rows.forEach(row => {
+    const cols = row.split(",");
+    if(cols.length > 1){
+      table.innerHTML += `
+        <tr>
+          <td>${cols[0]}</td>
+          <td>${cols[1]}</td>
+          <td>${cols[2]}</td>
+          <td>${cols[3]}</td>
+          <td>${cols[4] || "Pending"}</td>
+          <td>-</td>
+        </tr>
+      `;
+    }
+  });
 }
 
-function markPaid(i){
-students[i].status = "Paid";
 loadStudents();
-}
-
-loadStudents();
-
 </script>
-
 </body>
 </html>
