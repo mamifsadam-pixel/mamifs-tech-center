@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mamifs Future Tech</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+body {margin:0;font-family:'Poppins',sans-serif;background:#0b0f1a;color:#fff;}
+header {background:linear-gradient(135deg,#0A66C2,#001f3f);padding:80px 20px;text-align:center;}
+header h1 {font-size:45px;margin:0;}
+header p {opacity:0.8;margin-top:10px;}
+.btn {background:#0A66C2;padding:12px 25px;border-radius:30px;color:#fff;text-decoration:none;display:inline-block;margin-top:20px;}
+
+section {padding:60px 20px;max-width:1200px;margin:auto;}
+
+.cards {display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;}
+.card {background:#111827;padding:25px;border-radius:15px;box-shadow:0 10px 30px rgba(0,0,0,0.4);transition:0.3s;}
+.card:hover {transform:translateY(-10px);}
+
+.pricing {display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;}
+.price-card {background:#1f2937;padding:30px;border-radius:15px;text-align:center;}
+
+form input, form textarea {
+width:100%;padding:10px;margin:10px 0;border:none;border-radius:8px;
+}
+
+footer {background:#001f3f;text-align:center;padding:20px;}
+
+.whatsapp {
+position:fixed;bottom:20px;right:20px;
+background:#25D366;color:white;padding:15px;border-radius:50%;text-decoration:none;
+font-size:20px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>Mamifs Future Tech</h1>
+<p>Empowering Your Digital Future</p>
+<a href="#courses" class="btn">Start Learning</a>
+</header>
+
+<section>
+<h2>About Us</h2>
+<p>Mamifs Future Tech is a premium training center in N'Djamena focused on equipping students with real-world digital skills in IT, programming, design, and English.</p>
+</section>
+
+<section id="courses">
+<h2>Our Courses</h2>
+<div class="cards">
+<div class="card"><h3>Computer Basics</h3><p>Essential digital skills</p></div>
+<div class="card"><h3>Programming</h3><p>Learn coding step-by-step</p></div>
+<div class="card"><h3>Web Development</h3><p>Build modern websites</p></div>
+<div class="card"><h3>Graphic Design</h3><p>Create professional visuals</p></div>
+<div class="card"><h3>English Language</h3><p>Speak and write confidently</p></div>
+</div>
+</section>
+
+<section>
+<h2>Pricing</h2>
+<div class="pricing">
+<div class="price-card"><h3>Basic</h3><p>Affordable beginner plan</p></div>
+<div class="price-card"><h3>Standard</h3><p>Intermediate training</p></div>
+<div class="price-card"><h3>Premium</h3><p>Advanced professional training</p></div>
+</div>
+</section>
+
+<section>
+<h2>Student Registration</h2>
+<form action="https://formspree.io/f/your-form-id" method="POST">
+<input type="text" placeholder="Full Name" required>
+<input type="email" placeholder="Email" required>
+<input type="tel" placeholder="Phone" required>
+<textarea placeholder="Course Interested"></textarea>
+<button class="btn" type="submit">Register</button>
+<p style="font-size:12px;opacity:0.7;">After clicking register, your information will be sent directly to our system.</p>
+</form>
+</section>
+
+<section>
+<h2>Contact</h2>
+<p>📞 +235 64743633</p>
+<p>📧 mamifsadam@gmail.com</p>
+<p>📍 N'Djamena, Chad</p>
+</section>
+
+<a class="whatsapp" href="https://wa.me/23564743633">💬</a>
+
+<footer>
+<p>© 2026 Mamifs Future Tech</p>
+</footer>
+
+</body>
+</html>
