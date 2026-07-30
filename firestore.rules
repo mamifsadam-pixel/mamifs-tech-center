@@ -1,0 +1,32 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Anyone can submit a contact/enrollment inquiry, nobody can read them
+    // back except through the staff dashboard, which uses signed-in staff.
+    match /inquiries/{inquiryId} {
+      allow create: if true;
+      allow read, update, delete: if request.auth != null;
+    }
+
+    // Student roster: PIN checks happen client-side against this collection.
+    // Only signed-in staff may read the full roster or write to it.
+    // NOTE: because student login is PIN-based (not Firebase Auth), the
+    // client must query this collection while signed out — so reads are
+    // allowed, but never writes, and the PIN field should be treated as
+    // low-sensitivity (not a substitute for real account security).
+    match /students/{studentId} {
+      allow read: if true;
+      allow write: if request.auth != null;
+    }
+
+    // Progress documents are keyed by the student's Firestore doc ID.
+    // Since students aren't Firebase Auth users, we allow open read/write
+    // here and rely on obscurity of the ID. Tighten this if you later
+    // migrate students to real Firebase Auth accounts.
+    match /progress/{studentId} {
+      allow read, write: if true;
+    }
+  }
+}
